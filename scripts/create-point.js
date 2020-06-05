@@ -37,3 +37,19 @@ function getCities(event) {
 }
 
 document.querySelector('select[name=uf]').addEventListener('change', getCities);
+
+//Itens de Coleta
+// todos os li's
+
+const itemsToCollect = document.querySelectorAll('.items-grid li');
+
+for (const item of itemsToCollect) {
+  item.addEventListener('click', handleSelectedItem);
+}
+
+function handleSelectedItem(event) {
+  const itemLi = event.target;
+  //toggle = add ou remover uma classe com js
+  itemLi.classList.toggle('selected');
+  const itemId = itemLi.dataset.id;
+}
