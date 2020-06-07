@@ -28,12 +28,15 @@ server.get('/create-point', (req, res) => {
 
 server.get('/search', (req, res) => {
   //pegar os dados do banco de dados
-  db.all(`SELECT name FROM places`, function (err, rows) {
+  db.all(`SELECT * FROM places`, function (err, rows) {
     if (err) {
       return console.log(err);
     }
+
+    const total = rows.length;
+
     //mostrat a página html com os dados do banco de dados
-    return res.render('search-results.html', { places: rows });
+    return res.render('search-results.html', { places: rows, total: total });
   });
 });
 
