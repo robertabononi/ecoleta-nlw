@@ -51,6 +51,15 @@ db.serialize(() => {
     console.log(this);
   }
 
-  db.run(query, values, afterInsertData);
+  //db.run(query, values, afterInsertData);
+
   //3 - consultar dados da tabela
+
+  db.all(`SELECT name FROM places`, function (err, rows) {});
+  if (err) {
+    return console.log(err);
+  }
+
+  console.log('Aqui estão seus registros:');
+  console.log(rows);
 });
