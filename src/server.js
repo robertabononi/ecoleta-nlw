@@ -32,7 +32,7 @@ server.get('/create-point', (req, res) => {
   return res.render('create-point.html');
 });
 
-server.post('/savepoint', (req, red) => {
+server.post('/savepoint', (req, res) => {
   //req.body: o corpo do formulário
   // console.log(req.body);
 
@@ -66,7 +66,7 @@ server.post('/savepoint', (req, red) => {
     console.log('Cadastrado com sucesso');
     console.log(this);
 
-    return res.render('create - point.html', { saved: true });
+    return res.render('create-point.html', { saved: true });
   }
 
   db.run(query, values, afterInsertData);
